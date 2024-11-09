@@ -11,26 +11,17 @@ app.use(express.static("public"));
 
 // Create a new client instance using DATABASE_URL
 
-// const db = new pg.Client({
-//     user:"postgres",
-//     host:"127.0.0.1",
-//     database:"World",
-//     password:"postgres",
-//     port:5432,
-
-
-// });
-// db.connect();
-
 const db = new pg.Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false // Required for secure connections on Heroku
-    }
- });
- db.connect()
-    .then(() => console.log("Connected to the database"))
-    .catch(err => console.error("Connection error", err.stack));
+    user:"postgres",
+    host:"127.0.0.1",
+    database:"World",
+    password:"postgres",
+    port:5432,
+
+
+});
+db.connect();
+
 
 
 let quiz =[
