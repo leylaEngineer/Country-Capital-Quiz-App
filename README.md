@@ -14,10 +14,17 @@ The Country Capital Quiz App is a simple web-based quiz application built using 
 
 This project showcases fundamental web development skills, including server-side programming, routing, and templating.
 
-You Will fin App in Master Branche 
+You Will find App in Master Branche 
 
 ## Demo
 
-Check out the live demo of the Country Capital Quiz App ![here](https://country-capital-quiz-app-1.onrender.com).
+You can try out the live demo of the Country Capital Quiz App by clicking the link below:
+
+[Play the Quiz!](https://country-capital-quiz-app-1.onrender.com)
+
+### How to Play
+- Guess the capital city of the displayed country.
+- Submit your answer to see if you’re correct!
+- Your total score will be displayed as you progress through the quiz.
 
 
