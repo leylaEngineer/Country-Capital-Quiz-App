@@ -1,0 +1,108 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100vh; /* Use full viewport height */
+    margin: 0; /* Remove default margin */
+    background-image: url(../image/bg.png);
+    background-size: cover; /* or 'contain', depending on your needs */
+    background-repeat: no-repeat; /* prevents the image from repeating */
+    background-position: center; /* centers the image */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 350px;
+    width: 600px;
+    margin: 15% auto;
+    padding: 15px;
+    border: 2px solid white;
+    background-color: #fff;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+h3 {
+    margin: 0;
+}
+
+h1 {
+    text-align: center; /* Center the heading */
+}
+
+input {
+    width: 80%; /* Responsive width */
+    max-width: 300px; /* Limit max width */
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block; /* Ensure block display for centering */
+}
+
+.answer {
+    text-align: center; /* Center text */
+}
+
+button {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: large;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffca00;
+    color: white;
+    border: none;
+    outline: none; /* Remove default focus outline */
+    text-align: center; /* Ensure text is centered */
+    box-shadow: none; /* Remove any default shadow */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #e5d389; /* Change on hover */
+}
+
+button:focus {
+    outline: 2px solid #ffca00; /* Custom focus outline */
+}
+
+.check {
+    color: transparent;
+    animation: checkmark 0.5s ease; /* Ensure keyframes defined */
+}
+
+.error {
+    color: transparent;
+    animation: cross 0.5s ease; /* Ensure keyframes defined */
+}
+
+@keyframes checkmark {
+    0% { color: transparent; }
+    100% { color: green; }
+}
+
+@keyframes cross {
+    0% { color: transparent; }
+    100% { color: red; }
+}
+
+.restartBtn {
+    display: inline-block;
+    background-color: #fff;
+    color: #333;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}

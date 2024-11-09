@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Quiz World Capital</title>
+
+</head>
+<body id="app">
+    
+    <form class="containerForm" action="/submit" method="POST">
+        <h1 style="display: inline-block;">Guess the Capital !</h1>
+        <div >
+           <h3><Span> Total Score: <%= locals.score ? score :"0" %></Span></h3> 
+        </div>
+        <div >
+          <h1><Span> <%= question.country %></h1> </Span>
+        </div>
+        <div class="answer">
+          <input type="text" name="answer" placeholder="Enter the capital..."/>
+        </div>
+        <% if (locals.wasCorrect) { %>
+            <span class="check">Correct ✔</span>
+            <% } else if(locals.wasCorrect===false) { %>
+                <span class="error">✖ Try Again</span>
+         
+        <% } %>
+        <button type="submit">SUBMIT 
+
+        </button>
+
+    </form>
+
+    <script>
+        var wasCorrect = "<%= locals.wasCorrect %>";
+        console.log(wasCorrect)
+        if(wasCorrect === "false"){
+            alert('Game Over! Final best score :<%= locals.score %>');
+            document.getElementById('app').innerHTML='<a href="/" class="restartBtn">Restart</a>';
+        }
+    </script>
+    
+</body>
+</html>
