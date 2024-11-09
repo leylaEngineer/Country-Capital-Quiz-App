@@ -1,22 +1,35 @@
 import express from "express";
 import bodyParser from 'body-parser';
-import pg from "pg";
+import pg from "pg"; // Use named import for Client
+import dotenv from 'dotenv'; // Import dotenv to load environment variables
+dotenv.config();
 const app = express();
 const port =4000;
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
+// Create a new client instance using DATABASE_URL
+
+// const db = new pg.Client({
+//     user:"postgres",
+//     host:"127.0.0.1",
+//     database:"World",
+//     password:"postgres",
+//     port:5432,
+
+
+// });
+// db.connect();
+
 const db = new pg.Client({
-    user:"postgres",
-    host:"127.0.0.1",
-    database:"World",
-    password:"postgres",
-    port:5432,
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false // Required for secure connections on Heroku
+    }
+ });
+ db.connect();
 
-
-});
-db.connect();
 
 let quiz =[
     {country:"Algeria", capital:"Algeria"},
@@ -29,13 +42,17 @@ db.query("SELECT * FROM capitals",(err,res)=>{
         console.error("Error executing query",err.stack);
     }else{
         quiz=res.rows;
+        console.log("Loaded quiz data:", quiz); // Log the retrieved data
+       
     }
     db.end();
 });
 
+
 let totalScore=0;
 
 let currentQ={};
+
 app.get("/", async(req,res)=>{
   await nextQuestion();
   console.log(currentQ);
